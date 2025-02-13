@@ -88,9 +88,17 @@ q=0
 k=15
 n=0
 score=0
+Q1=[]
+W=[]
+count=[]
+count1=0
 while score<15:
-    plt.imshow(pv_show, cmap='hot')
+    plt.imshow(pv_show, cmap='tab10', vmin = 0, vmax = 8)
     plt.colorbar(label="значение")
+    while i<count1:
+        plt.text(W[i], Q1[i], round(count[i]))
+        i+=1
+    i=0
     plt.show()
     print(pv_show)
     print ("Введите 8 чтобы поставить флажок")
@@ -106,6 +114,10 @@ while score<15:
         if pv[x,y] != 8:
             pv_show[x,y]+=pv[x,y]
             one = plt.Rectangle((y, x), 1, 1, linewidth=1, edgecolor='b', facecolor='none')
+            W.append(y)
+            Q1.append(x)
+            count.append(pv[x, y])
+            count1 +=1
         elif pv[x,y] == 8:
             score+=100
         if pv[x, y] == 7:
@@ -133,6 +145,10 @@ while score<15:
             while I < 3:
                 while i < 3:
                     pv_show[q, w] = pv[q,w]
+                    W.append(w)
+                    Q1.append(q)
+                    count.append(pv[q,w])
+                    count1 += 1
                     w += 1
                     i += 1
                     Q += 1
@@ -166,8 +182,18 @@ while score<15:
             print("У вас нет флажка на:", '[', x, y, ']')
 if score==15:
     print ("you win!!")
+    while i<count1:
+        plt.text(W[i], Q1[i], round(count[i]))
+        i+=1
+    i=0
+    plt.imshow(pv, cmap='tab10', vmin = 0, vmax = 8)
+    plt.show()
 else:
-    print ("you lose")
     print(pv)
-    plt.imshow(pv, cmap='hot')
+    print ("you lose")
+    while i<count1:
+        plt.text(W[i], Q1[i], round(count[i]))
+        i+=1
+    i=0
+    plt.imshow(pv, cmap='tab10', vmin = 0, vmax = 8)
     plt.show()
