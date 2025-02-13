@@ -7,6 +7,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import matplotlib.patches
 import matplotlib.path
+from PIL import  Image
 import re
 y=0
 x=0
@@ -20,6 +21,7 @@ while y<8:
         x=0
     else:
         x=1
+#circle = plt.Circle((3, 0), 0.2, color= "green")
 S = ["A","B","C","D","E","F","G","H"]
 s = ["a","b","c","d","e","f","g","h"]
 plt.xticks(range(8), labels=s)
@@ -41,7 +43,6 @@ Xo=[]
 Yo=[]
 count=0
 i1=0
-#фигуры
 while i<8:
     y=6
     Y.append(y)
@@ -70,61 +71,6 @@ while i<32:
     x+=1
     i+=1 #i [24,31] белые фигуры 24, 31 - ладьи. 25, 30 - кони, 26, 29 - слоны, 27 - ферзь, 28 - король
 while X[20]!=11 or X[28]!=11:
-    if i==0: #просто чтобы красиво свернуть
-        i=27
-        plt.text(X[i], Y[i], "Кф", color="g")
-        i = 19
-        plt.text(X[i], Y[i], "Кф", color="r")
-        i =24
-        plt.text(X[i], Y[i], "Л", color="g")
-        i = 31
-        plt.text(X[i], Y[i], "л", color="g")
-        i = 25
-        plt.text(X[i], Y[i], "К", color="g")
-        i = 30
-        plt.text(X[i], Y[i], "К", color="g")
-        i = 0
-        plt.text(X[i], Y[i], "п", color="g")
-        i = 1
-        plt.text(X[i], Y[i], "п", color="g")
-        i = 2
-        plt.text(X[i], Y[i], "п", color="g")
-        i = 3
-        plt.text(X[i], Y[i], "п", color="g")
-        i = 4
-        plt.text(X[i], Y[i], "п", color="g")
-        i = 5
-        plt.text(X[i], Y[i], "п", color="g")
-        i = 6
-        plt.text(X[i], Y[i], "п", color="g")
-        i = 7
-        plt.text(X[i], Y[i], "п", color="g")
-        i = 16
-        plt.text(X[i], Y[i], "Л", color="r")
-        i = 23
-        plt.text(X[i], Y[i], "л", color="r")
-        i = 17
-        plt.text(X[i], Y[i], "К", color="r")
-        i = 22
-        plt.text(X[i], Y[i], "К", color="r")
-        i = 8
-        plt.text(X[i], Y[i], "п", color="r")
-        i = 9
-        plt.text(X[i], Y[i], "п", color="r")
-        i = 10
-        plt.text(X[i], Y[i], "п", color="r")
-        i = 11
-        plt.text(X[i], Y[i], "п", color="r")
-        i = 12
-        plt.text(X[i], Y[i], "п", color="r")
-        i = 13
-        plt.text(X[i], Y[i], "п", color="r")
-        i = 14
-        plt.text(X[i], Y[i], "п", color="r")
-        i = 15
-        plt.text(X[i], Y[i], "п", color="r")
-    plt.imshow(pv, cmap='hot')
-    plt.show()
     print ("Укажите фигуру")
     H=str(input())
     y1=int(H[0])
@@ -138,60 +84,6 @@ while X[20]!=11 or X[28]!=11:
             i+=10
         i+=1
     i=0
-    if i == 0:  # просто чтобы красиво свернуть
-        i = 27
-        plt.text(X[i], Y[i], "Кф", color="g")
-        i = 19
-        plt.text(X[i], Y[i], "Кф", color="r")
-        i = 24
-        plt.text(X[i], Y[i], "Л", color="g")
-        i = 31
-        plt.text(X[i], Y[i], "л", color="g")
-        i = 25
-        plt.text(X[i], Y[i], "К", color="g")
-        i = 30
-        plt.text(X[i], Y[i], "К", color="g")
-        i = 0
-        plt.text(X[i], Y[i], "п", color="g")
-        i = 1
-        plt.text(X[i], Y[i], "п", color="g")
-        i = 2
-        plt.text(X[i], Y[i], "п", color="g")
-        i = 3
-        plt.text(X[i], Y[i], "п", color="g")
-        i = 4
-        plt.text(X[i], Y[i], "п", color="g")
-        i = 5
-        plt.text(X[i], Y[i], "п", color="g")
-        i = 6
-        plt.text(X[i], Y[i], "п", color="g")
-        i = 7
-        plt.text(X[i], Y[i], "п", color="g")
-        i = 16
-        plt.text(X[i], Y[i], "Л", color="r")
-        i = 23
-        plt.text(X[i], Y[i], "л", color="r")
-        i = 17
-        plt.text(X[i], Y[i], "К", color="r")
-        i = 22
-        plt.text(X[i], Y[i], "К", color="r")
-        i = 8
-        plt.text(X[i], Y[i], "п", color="r")
-        i = 9
-        plt.text(X[i], Y[i], "п", color="r")
-        i = 10
-        plt.text(X[i], Y[i], "п", color="r")
-        i = 11
-        plt.text(X[i], Y[i], "п", color="r")
-        i = 12
-        plt.text(X[i], Y[i], "п", color="r")
-        i = 13
-        plt.text(X[i], Y[i], "п", color="r")
-        i = 14
-        plt.text(X[i], Y[i], "п", color="r")
-        i = 15
-        plt.text(X[i], Y[i], "п", color="r")
-    i = 0
     plt.xticks(range(8), labels=s)
     plt.yticks(range(8), labels=[f"{i}" for i in range(8, 0, -1)])
     axes = plt.gca()
@@ -905,4 +797,3 @@ while X[20]!=11 or X[28]!=11:
     I=0
     count=0
     i=0
-#конец
